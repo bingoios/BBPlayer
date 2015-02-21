@@ -14,6 +14,13 @@
 		DA03A0FA1A977EED006DA729 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA03A0F91A977EED006DA729 /* Images.xcassets */; };
 		DA03A0FD1A977EED006DA729 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA03A0FB1A977EED006DA729 /* LaunchScreen.xib */; };
 		DA03A1091A977EED006DA729 /* bbplayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA03A1081A977EED006DA729 /* bbplayerTests.m */; };
+		DA03A1131A9782C4006DA729 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA03A1121A9782C4006DA729 /* AVFoundation.framework */; };
+		DA03A1151A978613006DA729 /* timefly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA03A1141A978613006DA729 /* timefly.mp3 */; };
+		DA03A1171A97899C006DA729 /* default_album.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA03A1161A97899C006DA729 /* default_album.jpg */; };
+		DAEC28D21A98C48500A5BBDC /* PlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D11A98C48500A5BBDC /* PlayManager.m */; };
+		DAEC28D61A98C4CF00A5BBDC /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D51A98C4CF00A5BBDC /* SongInfo.m */; };
+		DAEC28D91A98C4E100A5BBDC /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D81A98C4E100A5BBDC /* SongList.m */; };
+		DAEC28DC1A98CA0100A5BBDC /* PlayAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +47,17 @@
 		DA03A1021A977EED006DA729 /* bbplayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bbplayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA03A1071A977EED006DA729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA03A1081A977EED006DA729 /* bbplayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bbplayerTests.m; sourceTree = "<group>"; };
+		DA03A1121A9782C4006DA729 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DA03A1141A978613006DA729 /* timefly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = timefly.mp3; sourceTree = "<group>"; };
+		DA03A1161A97899C006DA729 /* default_album.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_album.jpg; sourceTree = "<group>"; };
+		DAEC28D01A98C48500A5BBDC /* PlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayManager.h; path = Model/Play/PlayManager.h; sourceTree = "<group>"; };
+		DAEC28D11A98C48500A5BBDC /* PlayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayManager.m; path = Model/Play/PlayManager.m; sourceTree = "<group>"; };
+		DAEC28D41A98C4CF00A5BBDC /* SongInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongInfo.h; path = Model/Play/SongInfo.h; sourceTree = "<group>"; };
+		DAEC28D51A98C4CF00A5BBDC /* SongInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongInfo.m; path = Model/Play/SongInfo.m; sourceTree = "<group>"; };
+		DAEC28D71A98C4E100A5BBDC /* SongList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongList.h; path = Model/Play/SongList.h; sourceTree = "<group>"; };
+		DAEC28D81A98C4E100A5BBDC /* SongList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongList.m; path = Model/Play/SongList.m; sourceTree = "<group>"; };
+		DAEC28DA1A98CA0100A5BBDC /* PlayAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayAction.h; path = Model/Play/PlayAction.h; sourceTree = "<group>"; };
+		DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayAction.m; path = Model/Play/PlayAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA03A1131A9782C4006DA729 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +82,7 @@
 		DA03A0E01A977EED006DA729 = {
 			isa = PBXGroup;
 			children = (
+				DA03A1121A9782C4006DA729 /* AVFoundation.framework */,
 				DA03A0EB1A977EED006DA729 /* bbplayer */,
 				DA03A1051A977EED006DA729 /* bbplayerTests */,
 				DA03A0EA1A977EED006DA729 /* Products */,
@@ -81,6 +101,9 @@
 		DA03A0EB1A977EED006DA729 /* bbplayer */ = {
 			isa = PBXGroup;
 			children = (
+				DAEC28CF1A98C41500A5BBDC /* Model */,
+				DA03A1161A97899C006DA729 /* default_album.jpg */,
+				DA03A1141A978613006DA729 /* timefly.mp3 */,
 				DA03A0F01A977EED006DA729 /* AppDelegate.h */,
 				DA03A0F11A977EED006DA729 /* AppDelegate.m */,
 				DA03A0F31A977EED006DA729 /* ViewController.h */,
@@ -117,6 +140,29 @@
 				DA03A1071A977EED006DA729 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAEC28CF1A98C41500A5BBDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC28D31A98C48F00A5BBDC /* Play */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DAEC28D31A98C48F00A5BBDC /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC28D01A98C48500A5BBDC /* PlayManager.h */,
+				DAEC28D11A98C48500A5BBDC /* PlayManager.m */,
+				DAEC28D41A98C4CF00A5BBDC /* SongInfo.h */,
+				DAEC28D51A98C4CF00A5BBDC /* SongInfo.m */,
+				DAEC28D71A98C4E100A5BBDC /* SongList.h */,
+				DAEC28D81A98C4E100A5BBDC /* SongList.m */,
+				DAEC28DA1A98CA0100A5BBDC /* PlayAction.h */,
+				DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */,
+			);
+			name = Play;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA03A0F81A977EED006DA729 /* Main.storyboard in Resources */,
+				DA03A1171A97899C006DA729 /* default_album.jpg in Resources */,
 				DA03A0FD1A977EED006DA729 /* LaunchScreen.xib in Resources */,
 				DA03A0FA1A977EED006DA729 /* Images.xcassets in Resources */,
+				DA03A1151A978613006DA729 /* timefly.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEC28D91A98C4E100A5BBDC /* SongList.m in Sources */,
 				DA03A0F51A977EED006DA729 /* ViewController.m in Sources */,
+				DAEC28D21A98C48500A5BBDC /* PlayManager.m in Sources */,
 				DA03A0F21A977EED006DA729 /* AppDelegate.m in Sources */,
+				DAEC28DC1A98CA0100A5BBDC /* PlayAction.m in Sources */,
 				DA03A0EF1A977EED006DA729 /* main.m in Sources */,
+				DAEC28D61A98C4CF00A5BBDC /* SongInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +349,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +385,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -414,6 +466,7 @@
 				DA03A10E1A977EED006DA729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA03A10F1A977EED006DA729 /* Build configuration list for PBXNativeTarget "bbplayerTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +475,7 @@
 				DA03A1111A977EED006DA729 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
