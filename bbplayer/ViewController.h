@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewController : UIViewController<AVAudioPlayerDelegate>
-
-@property (strong, nonatomic) AVAudioPlayer* player;
+@interface ViewController : UIViewController
 
 @end
 

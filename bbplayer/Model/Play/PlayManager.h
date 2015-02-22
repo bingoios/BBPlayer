@@ -7,12 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "SongInfo.h"
 #import "SongList.h"
 
-@interface PlayManager : NSObject
+@interface PlayManager : NSObject<AVAudioPlayerDelegate>
 
-@property (strong, nonatomic) SongList* playingSongList;
-@property (strong, nonatomic) SongInfo* playingSongInfo;
++(PlayManager*)sharedPlayManager;
+
+-(BOOL)play;
+-(BOOL)playWithIndex:(NSUInteger)index;
+-(BOOL)playSongList:(SongList*)songList;
+-(BOOL)playSongList:(SongList*)songList index:(NSUInteger)index;
+-(BOOL)playNext;
+-(BOOL)playPrevious;
+-(BOOL)playOrPause;
+-(BOOL)pause;
+-(BOOL)stop;
+
+
+@property (strong, nonatomic, readonly) SongList* currentSongList;
+@property (strong, nonatomic, readonly) SongInfo* currentSong;
 
 @end

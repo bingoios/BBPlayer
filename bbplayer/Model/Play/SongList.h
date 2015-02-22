@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "SongInfo.h"
 
 @interface SongList : NSObject
 
+-(instancetype)init;
+-(SongInfo*) songFromIndex:(NSInteger)index;
+
 @property (strong, nonatomic, readonly) NSMutableArray* songs;
+@property (strong, nonatomic, readonly) SongInfo* currentSong;
+@property (nonatomic) NSInteger currentIndex;
 
 @end

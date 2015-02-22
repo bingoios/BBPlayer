@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "SongInfo.h"
 
 @interface PlayAction : NSObject
 
--(instancetype)initWithSong:(SongInfo*) song;
+-(BOOL)playSong:(SongInfo*)song;
+-(BOOL)play;
+-(BOOL)pause;
 
-@property (strong, nonatomic) SongInfo* song;
+@property(assign) id<AVAudioPlayerDelegate> delegate;
+
+@property(readonly, getter=isPlaying) BOOL playing;
 
 @end

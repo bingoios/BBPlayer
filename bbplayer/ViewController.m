@@ -7,12 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "PlayAction.h"
+#import "PlayManager.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController ()
+
+@property (weak, nonatomic) PlayManager* playManager;
 
 @end
 
 @implementation ViewController
+
+-(PlayManager*)playManager {
+    return [PlayManager sharedPlayManager];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -65,34 +74,37 @@
             case UIEventSubtypeRemoteControlTogglePlayPause:
             {
                 NSLog(@"UIEventSubtypeRemoteControlTogglePlayPause...");
-                [self pauseOrPlay];
+                [self.playManager playOrPause];
                 break;
             }
             case UIEventSubtypeRemoteControlPlay:
             {
                 NSLog(@"UIEventSubtypeRemoteControlPlay...");
-                [self pauseOrPlay];
+                [self.playManager play];
                 break;
             }
             case UIEventSubtypeRemoteControlPause:
             {
                 NSLog(@"UIEventSubtypeRemoteControlPause...");
-                [self pauseOrPlay];
+                [self.playManager pause];
                 break;
             }
             case UIEventSubtypeRemoteControlStop:
             {
                 NSLog(@"UIEventSubtypeRemoteControlStop...");
+                [self.playManager stop];
                 break;
             }
             case UIEventSubtypeRemoteControlNextTrack:
             {
                 NSLog(@"UIEventSubtypeRemoteControlNextTrack...");
+                [self.playManager playNext];
                 break;
             }
             case UIEventSubtypeRemoteControlPreviousTrack:
             {
                 NSLog(@"UIEventSubtypeRemoteControlPreviousTrack...");
+                [self.playManager playPrevious];
                 break;
             }
                 
@@ -108,16 +120,20 @@
     
     if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
         
-        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:@"name" forKey:MPMediaItemPropertyTitle];
-        [dict setObject:@"singer" forKey:MPMediaItemPropertyArtist];
-        [dict setObject:@"album" forKey:MPMediaItemPropertyAlbumTitle];
+        SongInfo* song = self.playManager.currentSong;
+        if (!song)
+        {
+            return;
+        }
         
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:self.playManager.currentSong.title forKey:MPMediaItemPropertyTitle];
+        [dict setObject:self.playManager.currentSong.artist forKey:MPMediaItemPropertyArtist];
+        [dict setObject:self.playManager.currentSong.album forKey:MPMediaItemPropertyAlbumTitle];
         
         UIImage *image = [UIImage imageNamed:@"default_album.jpg"];
         MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
         [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
-        
         
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
         
@@ -130,46 +146,14 @@
     BOOL fileexit = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
     if (fileexit) {
         
-        if (_player && [_player isPlaying]) {
-            return;
-        }
+        SongInfo* song = [[SongInfo alloc] init];
+        song.path = filepath;
         
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:filepath] error:nil];
-        [_player play];
+        SongList* songList = [[SongList alloc] init];
+        [self.playManager playSongList:songList];
         
-        //设置锁屏状态的显示内容
-        //        [self configNowPlayingInfoCenter];
+        [self configNowPlayingInfoCenter];
     }
 }
-
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player
-                       successfully:(BOOL)flag
-{
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"timefly" ofType:@"mp3"];
-    BOOL fileexit = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
-    if (fileexit) {
-        
-        if (_player && [_player isPlaying]) {
-            return;
-        }
-        
-        _player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:filepath] error:nil];
-        [_player play];
-        
-        //设置锁屏状态的显示内容
-        //        [self configNowPlayingInfoCenter];
-    }
-}
-
--(void)pauseOrPlay{
-    
-    if (_player && [_player isPlaying]) {
-        [_player pause];
-    }else {
-        [_player play];
-    }
-    
-}
-
 
 @end

@@ -8,15 +8,43 @@
 
 #import "SongInfo.h"
 
-#define DEFAULT_TITLE   @"BBPlayer"
+#define PRODUCT_NAME    @"BBPlayer"
+#define DEFAULT_TITLE   PRODUCT_NAME
+#define DEFAULT_ALBUM   PRODUCT_NAME
+#define DEFAULT_ARTIST  @""
+
 
 @implementation SongInfo
+
+-(NSString*)path {
+    if (_path&& (_path.length > 0)) {
+        return _path;
+    } else {
+        return @"";
+    }
+}
+
+-(NSString*)title {
+    if (_title && (_title.length > 0)) {
+        return _title;
+    } else {
+        return DEFAULT_TITLE;
+    }
+}
 
 -(NSString*)album {
     if (_album && (_album.length > 0)) {
         return _album;
     } else {
-        return DEFAULT_TITLE;
+        return DEFAULT_ALBUM;
+    }
+}
+
+-(NSString*)artist {
+    if (_artist && (_artist.length > 0)) {
+        return _artist;
+    } else {
+        return DEFAULT_ARTIST;
     }
 }
 

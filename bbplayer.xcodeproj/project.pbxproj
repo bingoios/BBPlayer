@@ -21,6 +21,8 @@
 		DAEC28D61A98C4CF00A5BBDC /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D51A98C4CF00A5BBDC /* SongInfo.m */; };
 		DAEC28D91A98C4E100A5BBDC /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D81A98C4E100A5BBDC /* SongList.m */; };
 		DAEC28DC1A98CA0100A5BBDC /* PlayAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */; };
+		DAEC28E21A99BAC400A5BBDC /* SwitchAction.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28E11A99BAC400A5BBDC /* SwitchAction.m */; };
+		DAEC28E41A99DBBC00A5BBDC /* paomo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DAEC28E31A99DBBC00A5BBDC /* paomo.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		DAEC28D81A98C4E100A5BBDC /* SongList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongList.m; path = Model/Play/SongList.m; sourceTree = "<group>"; };
 		DAEC28DA1A98CA0100A5BBDC /* PlayAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayAction.h; path = Model/Play/PlayAction.h; sourceTree = "<group>"; };
 		DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayAction.m; path = Model/Play/PlayAction.m; sourceTree = "<group>"; };
+		DAEC28E01A99BAC400A5BBDC /* SwitchAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchAction.h; sourceTree = "<group>"; };
+		DAEC28E11A99BAC400A5BBDC /* SwitchAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchAction.m; sourceTree = "<group>"; };
+		DAEC28E31A99DBBC00A5BBDC /* paomo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = paomo.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +106,9 @@
 		DA03A0EB1A977EED006DA729 /* bbplayer */ = {
 			isa = PBXGroup;
 			children = (
+				DAEC28DD1A98D65E00A5BBDC /* Data */,
 				DAEC28CF1A98C41500A5BBDC /* Model */,
 				DA03A1161A97899C006DA729 /* default_album.jpg */,
-				DA03A1141A978613006DA729 /* timefly.mp3 */,
 				DA03A0F01A977EED006DA729 /* AppDelegate.h */,
 				DA03A0F11A977EED006DA729 /* AppDelegate.m */,
 				DA03A0F31A977EED006DA729 /* ViewController.h */,
@@ -161,8 +166,19 @@
 				DAEC28D81A98C4E100A5BBDC /* SongList.m */,
 				DAEC28DA1A98CA0100A5BBDC /* PlayAction.h */,
 				DAEC28DB1A98CA0100A5BBDC /* PlayAction.m */,
+				DAEC28E01A99BAC400A5BBDC /* SwitchAction.h */,
+				DAEC28E11A99BAC400A5BBDC /* SwitchAction.m */,
 			);
 			name = Play;
+			sourceTree = "<group>";
+		};
+		DAEC28DD1A98D65E00A5BBDC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC28E31A99DBBC00A5BBDC /* paomo.mp3 */,
+				DA03A1141A978613006DA729 /* timefly.mp3 */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +266,7 @@
 				DA03A0FD1A977EED006DA729 /* LaunchScreen.xib in Resources */,
 				DA03A0FA1A977EED006DA729 /* Images.xcassets in Resources */,
 				DA03A1151A978613006DA729 /* timefly.mp3 in Resources */,
+				DAEC28E41A99DBBC00A5BBDC /* paomo.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEC28E21A99BAC400A5BBDC /* SwitchAction.m in Sources */,
 				DAEC28D91A98C4E100A5BBDC /* SongList.m in Sources */,
 				DA03A0F51A977EED006DA729 /* ViewController.m in Sources */,
 				DAEC28D21A98C48500A5BBDC /* PlayManager.m in Sources */,
