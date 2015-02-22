@@ -7,9 +7,9 @@
 //
 
 #import "PlayManager.h"
-#include <AVFoundation/AVFoundation.h>
-#include "PlayAction.h"
-#include "SwitchAction.h"
+#import <AVFoundation/AVFoundation.h>
+#import "PlayAction.h"
+#import "SwitchAction.h"
 
 @interface PlayManager()
 
@@ -17,6 +17,7 @@
 @property (strong, nonatomic, readwrite) SongInfo* currentSong;
 @property (strong, nonatomic) PlayAction* playAction;
 @property (strong, nonatomic) SwitchAction* switchAction;
+@property (strong, nonatomic) NSMutableArray* playObservers;
 
 @end
 
@@ -52,16 +53,27 @@ static PlayManager *sharedPlayManager = nil;
     return self.currentSongList.currentSong;
 }
 
+-(NSMutableArray*)playObservers {
+    if (!_playObservers) {
+        _playObservers = [[NSMutableArray alloc] init];
+    }
+    return _playObservers;
+}
+
 -(BOOL)play {
     return [self.playAction play];
 }
 
 -(BOOL)playSong:(SongInfo*)song {
-    return [self.playAction playSong:song];
+    BOOL ret = [self.playAction playSong:song];
+    if (ret) {
+        [self notifySongChanged];
+    }
+    return ret;
 }
 
 -(BOOL)playCurrentSong {
-    return [self.playAction playSong:self.currentSong];
+    return [self playSong:self.currentSong];
 }
 
 -(BOOL)playWithIndex:(NSUInteger)index {
@@ -111,6 +123,26 @@ static PlayManager *sharedPlayManager = nil;
 
 -(BOOL)stop {
     return YES;
+}
+
+-(void)addPlayManagerObserver:(PlayManagerObserver*)observer {
+    [self.playObservers addObject:observer];
+}
+
+-(void)removePlayManagerObserver:(PlayManagerObserver*)observer {
+    [self.playObservers removeObject:observer];
+}
+
+-(void)notifySongChanged {
+    for (id obs in self.playObservers) {
+        [obs songChanged];
+    }
+}
+
+-(void)notifySongListChanged {
+    for (id obs in self.playObservers) {
+        [obs songListChanged];
+    }
 }
 
 #pragma AVAudioPlayerDelegate

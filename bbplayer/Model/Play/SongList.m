@@ -35,14 +35,20 @@
 // TODO 测试数据，稍后删除
 -(void)initTestData {
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"timefly" ofType:@"mp3"];
     SongInfo* song = [[SongInfo alloc] init];
-    song.path = path;
+    song.filePath = [[NSBundle mainBundle] pathForResource:@"timefly" ofType:@"mp3"];
+    song.title = @"时间都去哪儿了";
+    song.artist = @"王铮亮";
+    song.album = @"";
+    song.imagePath = [[NSBundle mainBundle] pathForResource:@"timefly" ofType:@"jpg"];
     [self.songs addObject:song];
     
-    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"paomo" ofType:@"mp3"];
     SongInfo* song2 = [[SongInfo alloc] init];
-    song2.path = path2;
+    song2.filePath = [[NSBundle mainBundle] pathForResource:@"paomo" ofType:@"mp3"];
+    song2.title = @"泡沫";
+    song2.artist = @"邓紫棋";
+    song2.album = @"";
+    song2.imagePath = [[NSBundle mainBundle] pathForResource:@"paomo" ofType:@"jpg"];
     [self.songs addObject:song2];
 }
 

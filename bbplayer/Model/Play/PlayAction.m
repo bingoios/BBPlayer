@@ -31,7 +31,7 @@
     } else if (/*self.song != song*/ YES) {
         // 不是同一首歌，需要重新创建AVAudioPlayer
         self.song = song;
-        NSURL* url = [NSURL URLWithString:self.song.path];
+        NSURL* url = [NSURL URLWithString:self.song.filePath];
         self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
         self.player.delegate = self.delegate;
         return [self.player play];

@@ -120,20 +120,19 @@
     
     if (NSClassFromString(@"MPNowPlayingInfoCenter")) {
         
-        SongInfo* song = self.playManager.currentSong;
-        if (!song)
-        {
-            return;
-        }
-        
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-        [dict setObject:self.playManager.currentSong.title forKey:MPMediaItemPropertyTitle];
-        [dict setObject:self.playManager.currentSong.artist forKey:MPMediaItemPropertyArtist];
-        [dict setObject:self.playManager.currentSong.album forKey:MPMediaItemPropertyAlbumTitle];
-        
-        UIImage *image = [UIImage imageNamed:@"default_album.jpg"];
-        MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
-        [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+        SongInfo* song = self.playManager.currentSong;
+        if (song)
+        {
+            [dict setObject:song.title forKey:MPMediaItemPropertyTitle];
+            [dict setObject:song.artist forKey:MPMediaItemPropertyArtist];
+            [dict setObject:song.album forKey:MPMediaItemPropertyAlbumTitle];
+            
+            UIImage *image = [UIImage imageWithContentsOfFile:song.imagePath];
+            MPMediaItemArtwork *artwork = [[MPMediaItemArtwork alloc] initWithImage:image];
+            [dict setObject:artwork forKey:MPMediaItemPropertyArtwork];
+
+        }
         
         [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dict];
         
@@ -142,18 +141,17 @@
 }
 
 - (void) initPlayer {
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:@"timefly" ofType:@"mp3"];
-    BOOL fileexit = [[NSFileManager defaultManager] fileExistsAtPath:filepath];
-    if (fileexit) {
-        
-        SongInfo* song = [[SongInfo alloc] init];
-        song.path = filepath;
-        
-        SongList* songList = [[SongList alloc] init];
-        [self.playManager playSongList:songList];
-        
-        [self configNowPlayingInfoCenter];
-    }
+    [self.playManager addPlayManagerObserver:self];
+    SongList* songList = [[SongList alloc] init];
+    [self.playManager playSongList:songList];
+}
+
+-(void)songChanged {
+    [self configNowPlayingInfoCenter];
+}
+
+-(void)songListChanged {
+    
 }
 
 @end

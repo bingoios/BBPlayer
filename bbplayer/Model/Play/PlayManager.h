@@ -10,6 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SongInfo.h"
 #import "SongList.h"
+#import "PlayObserver.h"
+
+@class PlayManagerObserver;
 
 @interface PlayManager : NSObject<AVAudioPlayerDelegate>
 
@@ -24,7 +27,8 @@
 -(BOOL)playOrPause;
 -(BOOL)pause;
 -(BOOL)stop;
-
+-(void)addPlayManagerObserver:(PlayManagerObserver*)observer;
+-(void)removePlayManagerObserver:(PlayManagerObserver*)observer;
 
 @property (strong, nonatomic, readonly) SongList* currentSongList;
 @property (strong, nonatomic, readonly) SongInfo* currentSong;

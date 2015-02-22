@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "SongInfo.h"
+#import "SongInfo.h"
 
 @interface SongList : NSObject
 

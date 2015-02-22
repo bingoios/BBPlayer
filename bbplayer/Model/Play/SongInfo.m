@@ -10,15 +10,15 @@
 
 #define PRODUCT_NAME    @"BBPlayer"
 #define DEFAULT_TITLE   PRODUCT_NAME
-#define DEFAULT_ALBUM   PRODUCT_NAME
+#define DEFAULT_ALBUM   @""
 #define DEFAULT_ARTIST  @""
 
 
 @implementation SongInfo
 
--(NSString*)path {
-    if (_path&& (_path.length > 0)) {
-        return _path;
+-(NSString*)filePath {
+    if (_filePath&& (_filePath.length > 0)) {
+        return _filePath;
     } else {
         return @"";
     }
@@ -45,6 +45,14 @@
         return _artist;
     } else {
         return DEFAULT_ARTIST;
+    }
+}
+
+-(NSString*)imagePath {
+    if (_imagePath&& (_imagePath.length > 0)) {
+        return _imagePath;
+    } else {
+        return @"";
     }
 }
 
