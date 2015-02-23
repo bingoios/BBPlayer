@@ -141,9 +141,13 @@
 }
 
 - (void) initPlayer {
-    [self.playManager addPlayManagerObserver:self];
-    SongList* songList = [[SongList alloc] init];
-    [self.playManager playSongList:songList];
+    static BOOL isInited = NO;
+    if (!isInited) {
+        [self.playManager addPlayManagerObserver:self];
+        SongList* songList = [[SongList alloc] init];
+        [self.playManager playSongList:songList];
+        isInited = YES;
+    }
 }
 
 -(void)songChanged {

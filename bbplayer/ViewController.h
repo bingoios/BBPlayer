@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PlayObserver.h"
 
-@interface ViewController : UIViewController<PlayManagerObserver>
+@interface ViewController : UITabBarController<PlayManagerObserver>
 
 @end
 
