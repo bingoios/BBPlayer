@@ -11,6 +11,7 @@
 #import "SongInfo.h"
 #import "SongList.h"
 #import "PlayObserver.h"
+#import "PlayBase.h"
 
 @class PlayManagerObserver;
 
@@ -32,5 +33,8 @@
 
 @property (strong, nonatomic, readonly) SongList* currentSongList;
 @property (strong, nonatomic, readonly) SongInfo* currentSong;
+@property (nonatomic, readonly) NSTimeInterval currentTime;
+@property (nonatomic, readonly) NSTimeInterval duration;
+@property (nonatomic, readonly) PlayStatus playStatus;
 
 @end

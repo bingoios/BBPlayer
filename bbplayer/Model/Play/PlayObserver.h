@@ -13,6 +13,7 @@
 @required
 -(void)songChanged;
 -(void)songListChanged;
+-(void)playStatusChanged;
 
 @end
 

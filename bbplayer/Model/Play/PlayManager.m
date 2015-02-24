@@ -60,8 +60,22 @@ static PlayManager *sharedPlayManager = nil;
     return _playObservers;
 }
 
+-(NSTimeInterval)currentTime {
+    return self.playAction.currentTime;
+}
+
+-(NSTimeInterval)duration {
+    return self.playAction.duration;
+}
+
+-(PlayStatus)playStatus {
+    return self.playAction.playStatus;
+}
+
 -(BOOL)play {
-    return [self.playAction play];
+    BOOL ret = [self.playAction play];
+    [self notifyPlayStatusChanged];
+    return ret;
 }
 
 -(BOOL)playSong:(SongInfo*)song {
@@ -99,7 +113,7 @@ static PlayManager *sharedPlayManager = nil;
 -(BOOL)playNext {
     [self.switchAction switchNext];
     [self playCurrentSong];
-    
+    [self notifyPlayStatusChanged];
     return YES;
 }
 
@@ -110,18 +124,25 @@ static PlayManager *sharedPlayManager = nil;
 }
 
 -(BOOL)playOrPause {
+    BOOL ret = NO;
     if ([self.playAction isPlaying]) {
-        return [self.playAction pause];
+        ret = [self.playAction pause];
     }else {
-        return [self.playAction play];
+        ret = [self.playAction play];
     }
+    
+    [self notifyPlayStatusChanged];
+    return ret;
 }
 
 -(BOOL)pause {
-    return [self.playAction pause];
+    BOOL ret = [self.playAction pause];
+    [self notifyPlayStatusChanged];
+    return ret;
 }
 
 -(BOOL)stop {
+    [self notifyPlayStatusChanged];
     return YES;
 }
 
@@ -142,6 +163,12 @@ static PlayManager *sharedPlayManager = nil;
 -(void)notifySongListChanged {
     for (id obs in self.playObservers) {
         [obs songListChanged];
+    }
+}
+
+-(void)notifyPlayStatusChanged {
+    for (id obs in self.playObservers) {
+        [obs playStatusChanged];
     }
 }
 

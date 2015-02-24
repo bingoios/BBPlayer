@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="J5S-vc-7kz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="J5S-vc-7kz">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5S-vc-7kz" id="DK0-Xh-dUB">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="blH-3p-Ddc" customClass="SongTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SongCell" id="blH-3p-Ddc" customClass="SongTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="blH-3p-Ddc" id="eAZ-sB-ebe">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -69,6 +69,7 @@
                                     <outlet property="artistLabel" destination="OPC-ln-sQK" id="9O1-gS-U64"/>
                                     <outlet property="indexLabel" destination="e3d-Hh-eFZ" id="6Xh-og-bu8"/>
                                     <outlet property="titleLabel" destination="apv-NH-gsc" id="9ol-TC-ol9"/>
+                                    <segue destination="FlH-q1-AaW" kind="push" id="ihz-J7-lDu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -77,11 +78,121 @@
                             <outlet property="delegate" destination="9eC-Y6-pMd" id="bWU-5X-bbz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="LLl-Vq-eCn"/>
+                    <navigationItem key="navigationItem" id="LLl-Vq-eCn">
+                        <barButtonItem key="rightBarButtonItem" title="正在播放" id="kXw-Wx-fio">
+                            <connections>
+                                <segue destination="FlH-q1-AaW" kind="push" id="PnR-5A-VyK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNR-bn-Z6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1000" y="-722"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="1pR-WJ-amx">
+            <objects>
+                <viewController id="FlH-q1-AaW" customClass="PlayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vod-t9-tqK"/>
+                        <viewControllerLayoutGuide type="bottom" id="c0G-dm-36O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UiR-FV-T9b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-eB-ydV">
+                                <rect key="frame" x="16" y="257" width="252" height="31"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvh-q6-lxp">
+                                <rect key="frame" x="32" y="235" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSS-m8-euu">
+                                <rect key="frame" x="116" y="312" width="46" height="30"/>
+                                <state key="normal" title="播放">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonClick:" destination="FlH-q1-AaW" eventType="touchUpInside" id="U5x-e5-7Yj"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97R-Pu-vsF">
+                                <rect key="frame" x="116" y="313" width="46" height="30"/>
+                                <state key="normal" title="暂停">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseButtonClick:" destination="FlH-q1-AaW" eventType="touchUpInside" id="YSD-4x-YEJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-0C-hEG">
+                                <rect key="frame" x="27" y="313" width="46" height="30"/>
+                                <state key="normal" title="上一首">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="previousButtonClick:" destination="FlH-q1-AaW" eventType="touchUpInside" id="sQK-wA-jGN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFy-GN-hQk">
+                                <rect key="frame" x="198" y="313" width="46" height="30"/>
+                                <state key="normal" title="下一首">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playNextButtonClick:" destination="FlH-q1-AaW" eventType="touchUpInside" id="vFY-7e-S3n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcd-me-IY2">
+                                <rect key="frame" x="189" y="351" width="65" height="30"/>
+                                <state key="normal" title="循环播放">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="palyModeButtonClick:" destination="FlH-q1-AaW" eventType="touchUpInside" id="bJO-NZ-ATF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-10-a7x">
+                                <rect key="frame" x="198" y="235" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="歌名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cj9-wh-1eE">
+                                <rect key="frame" x="32" y="168" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="歌手" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXX-14-Voc">
+                                <rect key="frame" x="32" y="198" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kAD-ja-fEq">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="bm5-qx-9lu"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="artistLabel" destination="VXX-14-Voc" id="oJc-b4-F5P"/>
+                        <outlet property="pauseButton" destination="97R-Pu-vsF" id="YVr-Ns-S9y"/>
+                        <outlet property="playButton" destination="hSS-m8-euu" id="VjA-0A-OzF"/>
+                        <outlet property="playProgressSlider" destination="2gJ-eB-ydV" id="xv4-d8-NSP"/>
+                        <outlet property="playedTimeLabel" destination="Rvh-q6-lxp" id="eRl-mJ-gjp"/>
+                        <outlet property="titleLabel" destination="cj9-wh-1eE" id="QDp-si-csh"/>
+                        <outlet property="unplayedTimeLabel" destination="0A7-10-a7x" id="3Ga-xu-PGt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjg-ye-G2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="-722"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4qS-7k-YKm">
@@ -122,4 +233,7 @@
             <point key="canvasLocation" x="-1812" y="-722"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PnR-5A-VyK"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "SongInfo.h"
+#import "PlayBase.h"
 
 @interface PlayAction : NSObject
 
@@ -19,5 +20,9 @@
 @property(assign) id<AVAudioPlayerDelegate> delegate;
 
 @property(readonly, getter=isPlaying) BOOL playing;
+@property (nonatomic, readonly) NSTimeInterval currentTime;
+@property (nonatomic, readonly) NSTimeInterval duration;
+@property (nonatomic, readonly) PlayStatus playStatus;
+
 
 @end

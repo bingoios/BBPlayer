@@ -19,6 +19,7 @@
 		DA03A1171A97899C006DA729 /* default_album.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DA03A1161A97899C006DA729 /* default_album.jpg */; };
 		DA94D6E11A9B6F5B006757ED /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA94D6E01A9B6F5B006757ED /* SongTableViewCell.m */; };
 		DA94D6E41A9B71AE006757ED /* LocalSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA94D6E31A9B71AE006757ED /* LocalSongViewController.m */; };
+		DA94D6E71A9CBC29006757ED /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA94D6E61A9CBC29006757ED /* PlayViewController.m */; };
 		DAEC28D21A98C48500A5BBDC /* PlayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D11A98C48500A5BBDC /* PlayManager.m */; };
 		DAEC28D61A98C4CF00A5BBDC /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D51A98C4CF00A5BBDC /* SongInfo.m */; };
 		DAEC28D91A98C4E100A5BBDC /* SongList.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEC28D81A98C4E100A5BBDC /* SongList.m */; };
@@ -60,6 +61,9 @@
 		DA94D6E01A9B6F5B006757ED /* SongTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongTableViewCell.m; path = UI/SongTableViewCell.m; sourceTree = "<group>"; };
 		DA94D6E21A9B71AE006757ED /* LocalSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalSongViewController.h; path = UI/LocalSongViewController.h; sourceTree = "<group>"; };
 		DA94D6E31A9B71AE006757ED /* LocalSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalSongViewController.m; path = UI/LocalSongViewController.m; sourceTree = "<group>"; };
+		DA94D6E51A9CBC29006757ED /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayViewController.h; path = UI/PlayViewController.h; sourceTree = "<group>"; };
+		DA94D6E61A9CBC29006757ED /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayViewController.m; path = UI/PlayViewController.m; sourceTree = "<group>"; };
+		DA94D6E81A9CCFF6006757ED /* PlayBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayBase.h; path = Model/Play/PlayBase.h; sourceTree = "<group>"; };
 		DAA98F331A99EF6F00E607E1 /* PlayObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayObserver.h; path = Model/Play/PlayObserver.h; sourceTree = "<group>"; };
 		DAEC28D01A98C48500A5BBDC /* PlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayManager.h; path = Model/Play/PlayManager.h; sourceTree = "<group>"; };
 		DAEC28D11A98C48500A5BBDC /* PlayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayManager.m; path = Model/Play/PlayManager.m; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				DA94D6E01A9B6F5B006757ED /* SongTableViewCell.m */,
 				DA94D6E21A9B71AE006757ED /* LocalSongViewController.h */,
 				DA94D6E31A9B71AE006757ED /* LocalSongViewController.m */,
+				DA94D6E51A9CBC29006757ED /* PlayViewController.h */,
+				DA94D6E61A9CBC29006757ED /* PlayViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 				DAEC28E01A99BAC400A5BBDC /* SwitchAction.h */,
 				DAEC28E11A99BAC400A5BBDC /* SwitchAction.m */,
 				DAA98F331A99EF6F00E607E1 /* PlayObserver.h */,
+				DA94D6E81A9CCFF6006757ED /* PlayBase.h */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -317,6 +324,7 @@
 				DA03A0F51A977EED006DA729 /* ViewController.m in Sources */,
 				DAEC28D21A98C48500A5BBDC /* PlayManager.m in Sources */,
 				DA03A0F21A977EED006DA729 /* AppDelegate.m in Sources */,
+				DA94D6E71A9CBC29006757ED /* PlayViewController.m in Sources */,
 				DA94D6E41A9B71AE006757ED /* LocalSongViewController.m in Sources */,
 				DAEC28DC1A98CA0100A5BBDC /* PlayAction.m in Sources */,
 				DA03A0EF1A977EED006DA729 /* main.m in Sources */,
